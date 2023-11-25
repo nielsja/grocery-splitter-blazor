@@ -1,0 +1,183 @@
+@page "/grocery-splitter"
+@using grocery_splitter_blazor.Poco.Enums;
+
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                Calculations
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Person 1</th>
+                            <th>Person 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Solo items</td>
+                            <td class="@(viewModel.Person1Amounts.SoloItems == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.SoloItems.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.SoloItems == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.SoloItems.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Shared items</td>
+                            <td class="@(viewModel.Person1Amounts.SharedItems == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.SharedItems.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.SharedItems == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.SharedItems.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Subtotal items</td>
+                            <td class="@(viewModel.Person1Amounts.Subtotal == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.Subtotal.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.Subtotal == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.Subtotal.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Tax items</td>
+                            <td class="@(viewModel.Person1Amounts.Tax == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.Tax.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.Tax == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.Tax.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Tip items</td>
+                            <td class="@(viewModel.Person1Amounts.Tip == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.Tip.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.Tip == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.Tip.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Total with tax</td>
+                            <td class="@(viewModel.Person1Amounts.TotalWithTax == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.TotalWithTax.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.TotalWithTax == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.TotalWithTax.ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <td>Grand total</td>
+                            <td class="@(viewModel.Person1Amounts.TotalWithTaxAndTip == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person1Amounts.TotalWithTaxAndTip.ToString("c")</td>
+                            <td class="@(viewModel.Person2Amounts.TotalWithTaxAndTip == 0 ? "jn-text-muted" : "")">
+                                @viewModel.Person2Amounts.TotalWithTaxAndTip.ToString("c")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseTwo">
+                Receipt totals
+            </button>
+            @* <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo">
+            Receipt totals
+            </button> *@
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+            aria-labelledby="panelsStayOpen-headingTwo">
+            @* <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingTwo"> *@
+            <div class="accordion-body">
+                <EditForm OnValidSubmit="Submit" EditContext="editContext">
+                    <div class="row mb-2">
+                        <div class="col-sm-2">
+                            <label class="form-label">Subtotal</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <InputNumber @bind-Value="viewModel.ReceiptSubtotal" class="form-control"
+                                placeholder="subtotal">
+                            </InputNumber>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-sm-2">
+                            <label class="form-label">Tax</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <InputNumber @bind-Value="viewModel.ReceiptTax" @onblur="CalculateAllValues"
+                                class="form-control" placeholder="tax">
+                            </InputNumber>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col-sm-2">
+                            <label class="form-label">Tip</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <InputNumber @bind-Value="viewModel.ReceiptTip" @onblur="CalculateAllValues"
+                                class="form-control" placeholder="tip">
+                            </InputNumber>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (displayLineItems)
+{
+    <div class="m-2">
+    <button @onclick="AddNewLineItem" class="btn btn-primary mb-2">Add line item</button>
+
+    <h2>@testCalculateAllValuesString</h2>
+
+    <ul class="list-group">
+        @foreach (var item in viewModel.LineItems)
+            {
+                var index = viewModel.LineItems.IndexOf(item);
+                <li class="list-group-item">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-2">
+                            <InputNumber @bind-Value="item.ItemAmount"
+                                @oninput="@(e => { item.ItemAmount = e.Value == "" ? null : Convert.ToDecimal(e.Value); CalculateAllValues();})"
+                                @onblur="CalculateAllValues" class="form-control">
+                            </InputNumber>
+                        </div>
+                        <p>Item amount: @item.ItemAmount </p>
+                        <p>Person value: @item.Person</p>
+                        <div class="col-4">
+                            <InputRadioGroup @bind-Value="item.Person">
+                                <div class="btn-group">
+                                    <InputRadio Value="PersonEnum.Person1" id="@($"check-{index}-person1")" class="btn-check" />
+                                    <label class="btn btn-outline-primary" for="@($"check-{index}-person1")"
+                                        @onmousedown="CalculateAllValues">Person 1</label>
+
+                                    <InputRadio Value="PersonEnum.Person2" id="@($"check-{index}-person2")" class="btn-check" />
+                                    <label class="btn btn-outline-primary" for="@($"check-{index}-person2")"
+                                        @onmousedown="CalculateAllValues">Person 2</label>
+
+                                    <InputRadio Value="PersonEnum.All" id="@($"check-{index}-both")" class="btn-check"
+                                        @onmousedown="CalculateAllValues" />
+                                    <label class="btn btn-outline-primary" for="@($"check-{index}-both")">Both</label>
+                                </div>
+                            </InputRadioGroup>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" @onclick="(() => RemoveLineItem(item))"
+                                class="btn btn-outline-danger">Remove</button>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}

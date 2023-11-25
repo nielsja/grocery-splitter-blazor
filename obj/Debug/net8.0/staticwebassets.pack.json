@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/compressed/zh1eqfb9dd.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/scopedcss/bundle/grocery-splitter-blazor.styles.css",
+      "PackagePath": "staticwebassets/grocery-splitter-blazor.styles.css"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/service-worker-assets.js",
+      "PackagePath": "staticwebassets/service-worker-assets.js"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/service-worker/service-worker.published.js",
+      "PackagePath": "staticwebassets/service-worker.js"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/icon-512.png",
+      "PackagePath": "staticwebassets/icon-512.png"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/manifest.webmanifest",
+      "PackagePath": "staticwebassets/manifest.webmanifest"
+    },
+    {
+      "Id": "/Users/jennifernielsen/Coding/grocery-splitter-blazor/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.grocery-splitter-blazor.props",
+      "PackagePath": "build\\grocery-splitter-blazor.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.grocery-splitter-blazor.props",
+      "PackagePath": "buildMultiTargeting\\grocery-splitter-blazor.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.grocery-splitter-blazor.props",
+      "PackagePath": "buildTransitive\\grocery-splitter-blazor.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.grocery-splitter-blazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
