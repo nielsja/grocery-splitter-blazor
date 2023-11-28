@@ -159,14 +159,16 @@
                                 <div class="btn-group">
                                     <InputRadio Value="PersonEnum.Person1" id="@($"check-{index}-person1")" class="btn-check" />
                                     <label class="btn btn-outline-primary" for="@($"check-{index}-person1")"
-                                        @onmousedown="CalculateAllValues">Person 1</label>
+                                        @onmousedown="@(() => { item.Person = PersonEnum.Person1; CalculateAllValues(); })">Person
+                                        1</label>
 
                                     <InputRadio Value="PersonEnum.Person2" id="@($"check-{index}-person2")" class="btn-check" />
                                     <label class="btn btn-outline-primary" for="@($"check-{index}-person2")"
-                                        @onmousedown="CalculateAllValues">Person 2</label>
+                                        @onmousedown="@(() => { item.Person = PersonEnum.Person2; CalculateAllValues(); })">Person
+                                        2</label>
 
                                     <InputRadio Value="PersonEnum.All" id="@($"check-{index}-both")" class="btn-check"
-                                        @onmousedown="CalculateAllValues" />
+                                        @onmousedown="@(() => { item.Person = PersonEnum.All; CalculateAllValues(); })" />
                                     <label class="btn btn-outline-primary" for="@($"check-{index}-both")">Both</label>
                                 </div>
                             </InputRadioGroup>

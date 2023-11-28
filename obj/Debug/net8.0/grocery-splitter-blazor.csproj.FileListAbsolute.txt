@@ -1034,3 +1034,4 @@
 /Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/grocery-splitter-blazor.pdb
 /Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/ref/grocery-splitter-blazor.dll
 /Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/scopedcss/Pages/GrocerySplitter.razor.rz.scp.css
+/Users/jennifernielsen/Coding/grocery-splitter-blazor/obj/Debug/net8.0/grocery-splitter-blazor.sourcelink.json

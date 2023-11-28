@@ -1,6 +1,5 @@
 ﻿<Properties StartupConfiguration="{EA8D24B8-49FA-40B8-9213-E6DED93EE61C}|https">
   <MonoDevelop.Ide.ItemProperties.grocery-splitter-blazor PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
@@ -14,5 +13,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
